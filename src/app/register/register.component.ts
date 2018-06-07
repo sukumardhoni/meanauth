@@ -23,6 +23,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
+  errMsg
   onRegister() {
     console.log(this.registerForm.value)
     this.authService.register(this.registerForm.value)
@@ -36,6 +37,8 @@ export class RegisterComponent implements OnInit {
           }, 5000)
         } else {
           this.failure = true
+          
+          this.errMsg = res.msg
           setTimeout(() => {
             this.failure = false
           }, 5000)
